@@ -1,0 +1,196 @@
+.cabecalho {
+    background-color: var(--cor-fundo-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.cabecalho__menu {
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.cabecalho__container {
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho_container__texto {
+    display: none;
+}
+
+.cabecalho__container__img {
+    padding: 1em;
+}
+
+.cabecalho__container__ckeck:checked ~ .cabecalho__container__rotulo > .cabecalho__menu {
+    background-image: url("../img/Menu\ Aberto.svg");
+}
+
+
+.cabecalho__container__check:checked ~ .cabecalho__container__rotulo {
+    background: var(--cor-degrade);
+}
+
+.cabecalho__container__check {
+    display: none;
+}
+
+.cabecalho__container__check:checked~.lista__menu {
+    display: block;
+}
+
+.lista__menu {
+    display: none;
+    position: absolute;
+    top:100%;
+    width: 60vw;
+}
+
+.lista__menu__titulo, 
+.lista__menu__item {
+    padding: 1em;
+    background-color: var(--cor-fundo-header);
+}
+
+.lista__menu__titulo {
+    color: var(--cor-menu-titulo);
+    font-weight: 700;
+}
+
+.lista__menu__link {
+    background: var(--cor-degrade);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.container__titulo,
+.opcoes__direita {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+               
+    .cabecalho__img__transparente {
+        display: none;
+    }
+
+    .cabecalho__menu {
+        display: none;
+    }
+
+    .container__titulo,
+    .container__titulo__negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+    
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo__negrito {
+        font-weight: 700;
+    }   
+
+    .opcoes__direita {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;       
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--cor-preta);
+    }
+
+    .opcoes__botao:checked ~.lista__menu {
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    /* ~ Seleciona elementos que estão depois, mas não necessariamente em seguida, do elemento especificado antes do símbolo */
+    .opcoes__botao:checked ~.opcoes__rotulo > .opcoes__item {
+        background: var(--cor-degrade);
+        color: var(--cor-fundo-header);
+    }
+
+    .opcoes__item {
+        padding: 1.2em 1em;
+    }
+
+    .lista__menu__item:hover {
+        background: var(--cor-degrade);
+    }
+
+    /* > Seleciona elementos que estão dentro do elemento especificado antes do símbolo */
+    .lista__menu__item:hover > .lista__menu__link {
+        -webkit-text-fill-color: var(--cor-fundo-header);
+        text-decoration: none;
+    }
+
+    /* +  Seleciona elementos que estão logo após o elemento especificado antes do símbolo */
+}
+
+@media screen and (min-width: 1728px) {
+    
+    .cabecalho {
+        margin: 0 2em 0 2em;
+    }
+   
+    .cabecalho__container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--cor-preta);
+    }
+
+    .cabecalho_container__texto {
+        display: block;
+    }
+
+    .opcoes__direita {
+        margin-right: auto /* tenta preencher todo o espaço, jogando tudo para a esquerda */;
+    }
+}
+
+/* 
+************ 
+
+Pseudo-classe	Descrição	                Exemplo
+:active	        Link que está ativo.	    Um link sendo clicado.
+:disabled	    Elemento desativado.	    Um input que não pode ser preenchido.
+:focus	        Elemento recebendo foco	    Campo de um formulário.
+:link	        Cor dos links.	            Tag <a> em geral.
+:visited	    Cor de links já visitados	É utilizado em tags <a> mas só aparecem quando já foram clicadas.
+
+Combinador	Descrição	
+Exemplo de uso
+
++	        Seleciona elementos que estão logo após o elemento especificado antes do símbolo.	
+.container__botao + container__rotulo
+
+~	        Seleciona elementos que estão após (mas não necessariamente em seguida) o elemento especificado antes do símbolo.	
+.container__botao ~ .container__rotulo
+
+>	        Seleciona elementos que estão dentro do elemento especificado antes do símbolo.	
+.container__rotulo>.cabeçalho__menu-hamburguer
+
+
+************
+*/ 
